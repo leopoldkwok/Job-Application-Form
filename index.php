@@ -80,10 +80,6 @@
         }
 
 
-
-
-
-
         // Make sure the file was sent without errors
         if($_FILES['uploaded_file']['error'] == 0) {
             // Connect to the database
@@ -120,7 +116,7 @@
             // Check if it was successfull
             if($result) {
                 echo 'Success! Your details was successfully added! Thank you for sending your details.';
-                echo '<p>Click <a href="index_hack.php">here</a> to go enter more details</p>';
+                echo '<p>Click <a href="index.php">here</a> to go enter more details</p>';
             }
 
             else {
@@ -151,46 +147,96 @@
 
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <title>MySQL file upload example</title>
+
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <h1>Job Application Form</h1><br><br>
+        <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='css/main.css' rel='stylesheet'>
 </head>
 <body>
-    <form action="" method="post" enctype="multipart/form-data">
 
-    First Name:<br><input type="text" name="firstname" value="<?php
-        echo htmlspecialchars($firstname); // prefilled the form fields
-    ?>"><br>
-    <div class="error"><?php echo $firstnameError;?></div><br>
+    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="inputFirstname" class="col-sm-2 control-label">First Name:</label>
+            <div class="col-sm-10">
+                <input type="text" name="firstname" class="form-control" id="inputFirstname" placeholder="First Name" value="<?php
+            echo htmlspecialchars($firstname); // prefilled the form fields
+            ?>">
+            
+            <div class="error"><?php echo $firstnameError;?></div><br>
+            </div>
+        </div>
 
-    Last Name:<br><input type="text" name="lastname" value="<?php
-        echo htmlspecialchars($lastname); // prefilled the form fields
-    ?>"><br>
-    <div class="error"><?php echo $lastnameError;?></div><br>
+        <div class="form-group">
+            <label for="inputLastname" class="col-sm-2 control-label">Last Name:</label>
+            <div class="col-sm-10">
+                <input type="text" name="lastname" class="form-control" id="inputLastname" placeholder="Last Name" value="<?php
+            echo htmlspecialchars($lastname); // prefilled the form fields
+            ?>">
+            
+            <div class="error"><?php echo $lastnameError;?></div><br>
+            </div>
+        </div>
 
-    Email:<br><input type="text" name="email" value="<?php
-        echo htmlspecialchars($email); // prefilled the form fields
-    ?>"><br>
-    <div class="error"><?php echo $emailError;?></div><br>
+         <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+            <div class="col-sm-10">
+                <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Email" value="<?php
+                    echo htmlspecialchars($email); // prefilled the form fields
+                ?>">
+            <div class="error"><?php echo $emailError;?></div><br>
+            </div>
+        </div>
 
-    Phone Number:<br><input type="text" name="phone_number" value="<?php
-        echo htmlspecialchars($phone_number); // prefilled the form fields
-    ?>"><br>
-    <div class="error"><?php echo $phone_numberError;?></div><br>
+        <div class="form-group">
+            <label for="inputPhonenumber" class="col-sm-2 control-label">Phone Number:</label>
+            <div class="col-sm-10">
+                <input type="text" name="phone_number" class="form-control" id="inputPhonenumber" placeholder="Phone Number" value="<?php
+                    echo htmlspecialchars($phone_number); // prefilled the form fields
+                ?>">
+            <div class="error"><?php echo $phone_numberError;?></div><br>
+            </div>
+        </div>
 
-    Message: <br><textarea name="message" val="" rows="5" cols="40" "<?php
-        echo htmlspecialchars($message); // prefilled the form fields
-    ?>"></textarea><br><br>
+        <div class="form-group">
+            <label for="inputMessage" class="col-sm-2 control-label">Message:</label>
+            <div class="col-sm-10">
+                <textarea rows="5" cols="40" val="" input type="text" name="message" class="form-control" id="inputMessage" placeholder="Message" "<?php
+                    echo htmlspecialchars($message); // prefilled the form fields
+                ?>"></textarea>
+            </div>
+        </div>
 
-
-    Resume: <input type="file" name="uploaded_file"><br>
-        <div class="error"><?php echo $fileError;?></div>
-        <br><input class="submit" type="submit" name="submit" value="Submit">
+        <div class="form-group">
+            <label for="inputfile" class="col-sm-2 control-label">Resume:</label>
+            <div class="col-sm-10">
+                <input type="file" id="inputfile" name="uploaded_file">
+            <div class="error"><?php echo $fileError;?></div>
+            </div>
+        </div>
         
+        <div class="form-group">
+            <label for="submit" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <br><input class="submit" type="submit" name="submit" value="Submit">  
+            </div>
+        </div>
     </form>
+    
+
+
+
+
     <p>
 
        <!--  <a href="list_files.php">See all files</a> -->
     </p>
+
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

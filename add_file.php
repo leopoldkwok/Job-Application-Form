@@ -87,9 +87,13 @@ echo '<p>Click <a href="index.php">here</a> to go back</p>';
 
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <title>MySQL file upload example</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='css/main.css' rel='stylesheet'>
 </head>
 <body>
     <form action="" method="post" enctype="multipart/form-data">
